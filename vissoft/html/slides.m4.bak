@@ -1,0 +1,143 @@
+dnl
+dnl TODO:
+dnl    * generate a TOC (top bar)
+dnl    * Test on the laptop
+dnl    * Too much text
+define(`_TITLE_',`YARN: Animating Software Evolution')dnl
+define(`_AUTHORS_',```Abram Hindle,  Zhen Ming Jiang, Walid Koleilat, Michael W. Godfrey, Richard C. Holt''')dnl
+define(`_LOCATION_',```University of Waterloo and University of Victoria''')dnl
+define(`_EMAILS_',```ahindle@cs.uwaterloo.ca,$1 zmjiang@ece.uvic.ca,$1 {wkoleila,migod,holt}@cs.uwaterloo.ca''')dnl
+define(`_REC_WIDTH_',800)dnl
+define(`_REC_HEIGHT_',600)dnl
+define(`_MAX_SLIDES_',18)dnl
+include(defaults.m4)dnl
+dnl
+_TITLE_SLIDE(`
+	_TITLE_() _NL_()
+	_AUTHORS_ _NL_()
+	_LOCATION_ _NL_()
+	_EMAILS_(_NL_())
+')dnl
+_SLIDE(Introduction,
+	_LIST_(
+		_li(Deal with large amounts of data)
+		_li(Hard to traverse textually)
+		_li(Architectural Change hard to grasp)
+		_li(Architectural Snapshots based on a baseline architecture)
+		_li(Animate Snapshots)
+		_li(Release Time is the end and start of an iteration.)
+	)
+)dnl
+_SLIDE(Introduction,
+	_LIST_(
+		_li(`Proposal
+			_LIST_(
+				_li(Animate the architectural change (coupling))
+				_li(Start with Baseline Architecture)
+				_li(Modules in fixed positions)
+				_li(Show coupling change per revision)
+			)
+		')
+		_li(Animated Boxes and Arrows Archectural Diagram)
+	)
+)dnl
+_SLIDE(Motivation,
+	_LIST_(
+		_li(We had lots of data)
+		_li(We could select important changes)
+		_li(We didn't know what the history looked like)
+		_li(We didn't know what the cumulative coupling looked like)
+	)
+)dnl
+_SLIDE(Implementation,
+	_center_(
+		_IMG_FRAME(YARNApproach.png)
+	)
+)dnl
+_SLIDE(Example,
+	_center_(
+		_IMG_FRAME(postgresql.default.swf)
+	)
+)dnl
+_SLIDE(C-REX,
+	_LIST_(
+		_li(Evolutionary source code extractor)
+		_li(Uses ctags for tokens)
+		_li(Generate Transactions associated with symbols)
+		_li(Generate a Symbol Table)
+	)
+)dnl
+_SLIDE(HistODiff,
+	_LIST_(
+		_li(Reconcile the symbol table to files)
+		_li(Reconcile files to modules via a mapping (not necessarily
+directories!))
+		_li(Lift dependencies between files to the module level)
+		_li(Filters revisions that architecturally relevant)
+	)
+)dnl
+_SLIDE(HistODiff,
+	_LIST_(
+		_li(Importance
+			_LIST_(
+				_li(connected)
+				_li(unconnected)
+				_li(double dependencies)
+				_li(halve dependencies)
+			)
+		)
+	)
+)dnl
+_SLIDE(YARN,
+	_LIST_(
+		_li(Animates the graph output of HistODiff)
+		_li(Static Layout)
+		_li(Animates coupling over time)
+		_li(Cumulative edge growth)
+	)
+)dnl
+_SLIDE(YARN Screenshot,
+		_center_(
+				_IMG_H_(evoflash.png)
+		)
+)
+_SLIDE(PostgreSQL Case Study: Architecture,
+		_center_(
+				_IMG_FRAME(architecture.png)
+		)
+)
+_SLIDE(YARN Demo: Color Change on Modification,
+	_center_(
+		_IMG_FRAME(postgresql.default.swf)
+	)
+)
+_SLIDE(YARN Demo: Color Change on Modification (Decay),
+	_center_(
+		_IMG_FRAME(postgresql.everything_colorful_decay.swf)
+	)
+)
+_SLIDE(YARN Demo: Highlight Important Changes,
+	_center_(
+		_IMG_FRAME(postgresql.important.swf)
+	)
+)
+_SLIDE(YARN Demo: Highlight Important Changes and Decay,
+	_center_(
+		_IMG_FRAME(postgresql.important_decay.swf)
+	)
+)
+_SLIDE(Results,
+	_LIST_(
+		_li(Highlight and Decay most popular scheme)
+		_li(Users were not surprised by what they saw)
+		_li(Changes in coupling were visible)
+		_li(Some color schemes were confusing)
+	)
+)
+_SLIDE(Summary,
+	_LIST_(
+		_li(YARN Balls are animations of architectural change)
+		_li(Case Study of PostgreSQL)
+		_li(Informal User Survey)
+	)
+)

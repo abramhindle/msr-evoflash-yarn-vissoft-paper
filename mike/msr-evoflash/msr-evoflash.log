@@ -1,0 +1,304 @@
+This is pdfTeX, Version 3.14159-1.10b (Web2C 7.4.5) (format=pdflatex 2005.2.12)  29 JAN 2006 18:35
+**msr-evoflash
+(./msr-evoflash.tex{/usr/share/texmf/pdftex/config/pdftex.cfg}
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, n
+ohyphenation, loaded.
+(/usr/share/texmf/tex/latex/base/article.cls
+Document Class: article 2001/04/21 v1.4e Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/size10.clo
+File: size10.clo 2001/04/21 v1.4e Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (./latex8.sty
+IEEE 8.5 x 11-Inch Proceedings Style `latex8.sty'.
+\@ctmp=\skip43
+\@figindent=\skip44
+) (/usr/share/texmf/tex/latex/psnfss/times.sty
+Package: times 2002/09/08 PSNFSS-v9.0a (SPQR) 
+)
+(/usr/share/texmf/tex/latex/tools/xspace.sty
+Package: xspace 1997/10/13 v1.06 Space after command names (DPC)
+)
+(/usr/share/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2001/08/31 v1.1 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 80.
+
+(/usr/share/texmf/tex/latex/graphics/pdftex.def
+File: pdftex.def 2002/06/19 v0.03k graphics/color for pdftex
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(/usr/share/texmf/tex/latex/misc/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count88
+\float@exts=\toks15
+\float@box=\box26
+\@float@everytoks=\toks16
+\@floatcapt=\box27
+)
+
+LaTeX Warning: Unused global option(s):
+    [times].
+
+(./msr-evoflash.aux)
+\openout1 = `msr-evoflash.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 37.
+ (/usr/share/texmf/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+(/usr/share/texmf/tex/context/base/supp-pdf.tex
+(/usr/share/texmf/tex/context/base/supp-mis.tex
+loading : Context Support Macros / Missing
+\protectiondepth=\count89
+\scratchcounter=\count90
+\scratchtoks=\toks17
+\scratchdimen=\dimen105
+\scratchskip=\skip45
+\scratchmuskip=\muskip10
+\scratchbox=\box28
+\scratchread=\read1
+\scratchwrite=\write3
+\zeropoint=\dimen106
+\minusone=\count91
+\thousandpoint=\dimen107
+\emptytoks=\toks18
+\nextbox=\box29
+\nextdepth=\dimen108
+\everyline=\toks19
+\!!counta=\count92
+\!!countb=\count93
+\recursecounter=\count94
+)
+loading : Context Support Macros / PDF
+\nofMPsegments=\count95
+\nofMParguments=\count96
+\everyMPtoPDFconversion=\toks20
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 49.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 49.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 49.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 49.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 49.
+ (/usr/share/texmf/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 49.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 52.
+ [1{/usr/share/texmf/dvips/config/pdftex.map}
+
+
+] <presentation/graph1.png, id=14, 995.72pt x 809.0225pt>
+File: presentation/graph1.png Graphic file (type png)
+
+<use presentation/graph1.png>
+Overfull \hbox (11.29218pt too wide) in paragraph at lines 247--247
+ [][] 
+ []
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 263.
+[2 <./presentation/graph1.png>]
+<presentation/graph2.png, id=23, 995.72pt x 809.0225pt>
+File: presentation/graph2.png Graphic file (type png)
+
+<use presentation/graph2.png>
+Overfull \hbox (11.29218pt too wide) in paragraph at lines 372--372
+ [][] 
+ []
+
+
+Underfull \hbox (badness 2293) in paragraph at lines 384--387
+/ptmr7t/changes in en-tity types, de-pen-den-cies, and com-ment
+ []
+
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 438.
+<evoflash.png, id=24, 1405.25pt x 1405.25pt>
+File: evoflash.png Graphic file (type png)
+ <use evoflash.png>
+<presentation/graph3.png, id=25, 996.72375pt x 810.02625pt>
+File: presentation/graph3.png Graphic file (type png)
+
+<use presentation/graph3.png>
+Overfull \hbox (11.29218pt too wide) in paragraph at lines 459--459
+ [][] 
+ []
+
+[3 <./presentation/graph2.png>]
+Overfull \vbox (12.6947pt too high) has occurred while \output is active []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 483.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 483.
+
+[4 <./evoflash.png> <./presentation/graph3.png>]
+<presentation/graph4.png, id=41, 1001.7425pt x 811.03pt>
+File: presentation/graph4.png Graphic file (type png)
+
+<use presentation/graph4.png>
+Overfull \hbox (11.29218pt too wide) in paragraph at lines 533--533
+ [][] 
+ []
+
+
+Underfull \hbox (badness 7081) in paragraph at lines 543--547
+[]/ptmr7t/This col-or-ing al-go-
+ []
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 625.
+[5 <./presentation/graph4.png>]
+<presentation/graph5.png, id=45, 1002.74625pt x 812.03375pt>
+File: presentation/graph5.png Graphic file (type png)
+
+<use presentation/graph5.png>
+Overfull \hbox (11.29218pt too wide) in paragraph at lines 656--656
+ [][] 
+ []
+
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 661.
+
+(/usr/share/texmf/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 660--662
+[]/ptmr7t/handles au-then-ti-ca-tion and
+ []
+
+
+Underfull \hbox (badness 1917) in paragraph at lines 664--666
+[]/ptmr7t/is the pri-mary mod-ule for query rewrit-ing
+ []
+
+
+Underfull \hbox (badness 1178) in paragraph at lines 666--668
+[]/ptmr7t/attempts to choose an op-ti-mal query plan
+ []
+
+
+Underfull \hbox (badness 1845) in paragraph at lines 681--681
+[]/cmbx10@11.0pt/A Vi-sual Walk Through of Post-
+ []
+
+[6 <./presentation/graph5.png>]
+<presentation/graph6.png, id=53, 1003.75pt x 815.045pt>
+File: presentation/graph6.png Graphic file (type png)
+
+<use presentation/graph6.png>
+Overfull \hbox (11.29218pt too wide) in paragraph at lines 731--731
+ [][] 
+ []
+
+
+Underfull \hbox (badness 3872) in paragraph at lines 744--749
+[]/ptmr7t/The server pro-gram-ming in-ter-face was
+ []
+
+
+Underfull \hbox (badness 1365) in paragraph at lines 772--777
+[]/ptmr7t/Developers im-proved the client/server
+ []
+
+File: presentation/graph4.png Graphic file (type png)
+<use presentation/graph4.png>
+<analysis2005.png, id=54, 1049.9225pt x 851.18pt>
+File: analysis2005.png Graphic file (type png)
+ <use analysis2005.png>
+Overfull \hbox (24.00002pt too wide) in paragraph at lines 827--831
+ [][] 
+ []
+
+[7 <./presentation/graph6.png>]
+<YARNApproach.png, id=59, 819.06pt x 1361.085pt>
+File: YARNApproach.png Graphic file (type png)
+ <use YARNApproach.png>
+<architecture.png, id=60, 1898.09125pt x 1952.29375pt>
+File: architecture.png Graphic file (type png)
+ <use architecture.png>
+(./msr-evoflash.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 9--12
+[]/ptmr7t@9.0pt/Exuberant Ctags.  Tech-ni-cal re-port.
+ []
+
+
+Underfull \hbox (badness 3907) in paragraph at lines 49--53
+[]/ptmr7t@9.0pt/A. Has-san.  Min-ing soft-ware repos-i-to-ries to guide
+ []
+
+
+Underfull \hbox (badness 7451) in paragraph at lines 49--53
+/ptmr7t@9.0pt/soft-ware de-vel-op-ment.  http://plg.uwaterloo.ca/ aee-
+ []
+
+
+Underfull \hbox (badness 1735) in paragraph at lines 55--59
+[]/ptmr7t@9.0pt/A. E. Has-san and R. C. Holt.  C-REX: An Evo-lu-
+ []
+
+) [8 <./analysis2005.png>] [9 <./YARNApproach.png>] [10 <./architecture.png>]
+(./msr-evoflash.aux) ) 
+Here is how much of TeX's memory you used:
+ 1197 strings out of 95437
+ 14847 string characters out of 1190233
+ 64135 words of memory out of 1000001
+ 4196 multiletter control sequences out of 10000+50000
+ 23969 words of font info for 47 fonts, out of 500000 for 1000
+ 14 hyphenation exceptions out of 1000
+ 25i,11n,19p,203b,378s stack positions out of 1500i,500n,5000p,200000b,5000s
+ 69 PDF objects out of 300000
+ 0 named destinations out of 131072
+ 50 words of extra memory for PDF output out of 65536
+{/usr/share/texmf/dvips/psnfss/8r.enc}{/usr/share/texmf/d
+vips/tetex/f7b6d320.enc}</usr/share/texmf/fonts/type1/bluesky/cm/cmr10.pfb></us
+r/share/texmf/fonts/type1/bluesky/cm/cmr7.pfb>{/usr/share/texmf/dvips/tetex/aae
+443f0.enc}</usr/share/texmf/fonts/type1/bluesky/cm/cmmi10.pfb></usr/share/texmf
+/fonts/type1/bluesky/cm/cmbx10.pfb>{/usr/share/texmf/dvips/tetex/bbad153f.enc}<
+/usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb>
+Output written on msr-evoflash.pdf (10 pages, 2143928 bytes).

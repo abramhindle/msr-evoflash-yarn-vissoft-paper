@@ -1,0 +1,881 @@
+\documentclass[times, 10pt,twocolumn]{article} 
+\usepackage{latex8}
+\usepackage{times}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{float}
+\newcommand{\igH}[1]{\includegraphics[height=.9\textheight]{#1}}
+\newcommand{\igHF}[1]{\includegraphics[height=\textheight]{#1}}
+\newcommand{\igHhalf}[1]{\includegraphics[height=.4\textheight]{#1}}
+\newcommand{\igHs}[1]{\includegraphics[height=.3\textheight]{#1}}
+\newcommand{\igHthird}[1]{\includegraphics[height=.32\textheight]{#1}}
+\newcommand{\igHh}[1]{\includegraphics[height=.5\textheight]{#1}}
+\newcommand{\igW}[1]{\includegraphics[width=.9\textwidth]{#1}}
+\newcommand{\igWh}[1]{\includegraphics[width=.5\textwidth]{#1}}
+\newcommand{\igWhh}[1]{\includegraphics[width=.7\textwidth]{#1}}
+\newcommand{\igWhalf}[1]{\includegraphics[width=.5\textwidth]{#1}}
+\newcommand{\igWs}[1]{\includegraphics[width=.3\textwidth]{#1}}
+\newcommand{\igWF}[1]{\includegraphics[width=\textwidth]{#1}}
+
+\newcommand{\histodiff}{\emph{HistODiff}\xspace}
+\newcommand{\crex}{\emph{C-REX}\xspace}
+\newcommand{\loggen}{\emph{LogGen}\xspace}
+
+\newcommand{\yarn}{\emph{YARN\xspace}}
+\newcommand{\evoflash}{\yarn}
+\newcommand{\YARN}{\yarn}
+\newcommand{\postgresql}{\emph{PostgreSQL}\xspace}
+\newcommand{\cvsup}{\emph{CVSup}\xspace}
+\newcommand{\Subsection}[1]{\subsection{#1}}
+%\documentstyle[times,art10,twocolumn,latex8]{article}
+
+%------------------------------------------------------------------------- 
+% take the % away on next line to produce the final camera-ready version 
+\pagestyle{empty}
+
+%------------------------------------------------------------------------- 
+\begin{document}
+\newcommand{\names}{Abram Hindle, Jack ZhenMing Jiang, Walid Koleilat,
+  Michael W. Godfrey, Richard C. Holt}
+\author{
+\names \\
+University of Waterloo\\
+\{ahindle,zmjiang,wkoleila,migod,holt\}@cs.uwaterloo.ca
+}
+\title{
+YARN: Animating Software Evolution
+}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+
+A problem that faces the study of software evolution is how to explore the
+aggregated and cumulative effects of finely grained changes that occur
+within a software system over time.  In this paper we describe an approach
+to modelling, extracting, and animating the architectural evolution of a
+software system.  We have built a prototype tool called \YARN (Yet Another
+Reverse-engineering Narrative) that implements our approach;  \YARN mines
+the source code changes of the target system, and then generates \YARN
+``balls'' (animations) that a viewer can unravel (watch).  The animation
+employs a static layout of the modules connected by animated edges that
+model the changing dependencies.  Furthermore, the edges can be weighted by
+the number of dependencies or the importance of the chance.  We demonstrate
+our approach using the open source database system \postgresql as the target
+system.
+
+%-- \YARN animates changes in the dependencies between modules in a software
+%-- system.  These dependencies are automatically extracted from a software
+%-- repository (CVS) and then used to generate an animation. 
+%-- 
+%-- The animation features a static
+%-- layout out of modules connected by animated edges. Edges are weighted by
+%-- the number of dependencies or importance of the changes.  Finally, we
+%-- demonstrate our approach using the open source database system
+%\postgresql
+%-- as the example system.
+
+\end{abstract}
+
+
+
+%------------------------------------------------------------------------- 
+
+%Check YARN and conclusions
+%Sell the approach then show the tool. APPROACH, abstract, into, conclusions
+%Conclusion - improve
+% * why is this interesting?
+% Grand Overview
+%  * Where is the problem
+%  * What is the problem
+%    * Visualization
+%    * Diff Between Version
+%    * Large Amount of data
+% MAYBE PRESENT POINT IN BULLET FORM
+
+%XWHAT IS THE RESEARCH PROBLEM
+%X * Visualize Animate data
+%X * Diff Between Revisions
+%X * Visualize Large Data
+%X * See cumulative effects of change (CREX Issue)
+%X Discuss Edges (alpha channel and direction)
+%X Add Ric and Mike
+
+%XChange Text on Diagrams (white border, light grey background)
+%Xs/evoFlash/Yarn/
+%X * Explain yarn balls
+%X * Yet Another Reverse engineering Narration
+%X   * YARN BALLS
+%X   * Yarn produces YARN balls which you unravel
+
+
+
+%XAdd Related work or change Background to Background and Related Work
+%X* Becker - Program Animation
+%X* Claudia Riva ICSM 99
+%X* Shrimp (animations between views)
+%X* Jonathan Maletric 
+%XExplain flipbook
+
+%Reference Figures, integrate postgresql with evoflash, suggest correlation
+% * better correlate
+%Explain Static Architecture
+%Explain Color
+%Describe comparison diagram better
+% * Or Compare two diagrams
+%Edit
+%Annotate Screenshot diagrams (paws?)
+%Change Figure Colors
+
+% Read
+% Embeddable
+% DIAGRAM: Describe animation NEED THIS
+% Diagram overlayed animation
+% X Flipbook
+
+%CODE
+% * show only changed edges
+% * Color Functions
+% * Evaluate Evolution?
+%Writing up
+% * 
+%MSR IS 4 or 8 pages?
+%Focus on EvoFlash
+%HistODiff
+%Color Functions
+
+
+%Focus will be on EvoFlash and how it animates evolution
+%Use postgresql examples but it might not be necessary to a tell a story
+%IWPC 10 pages
+
+\Section{Introduction}
+
+\newcommand{\abram}[1]{\emph{(***ABRAM***: #1)}}
+\newcommand{\graphfigfile}[1]{presentation/graph#1}
+\newcommand{\graphlabel}[1]{fig:graph#1}
+\newcommand{\yarnshots}{6}
+\newcommand{\graphfig}[1]{
+\begin{figure}[!b]
+  \centering
+  \igWh{\graphfigfile{#1}}
+  \caption{\postgresql \YARN Flipbook shot #1/\yarnshots}
+  \label{\graphlabel{#1}}
+\end{figure}
+}
+
+
+
+%* Visualize Change over time
+%* Share animations
+%* Find important changes
+%* map Arch to evolution
+
+Successful software systems evolve in many ways and for many reasons:  bugs
+are found and fixed, new features and deployment environments are requested
+by users, and systems are refactored by developers to improve the internal
+design.  However, the visualization and comprehension of change over time
+is a problem that still faces the study of software evolution.  
+
+For a given system, a developer may have access to static ``snapshots'' of
+its software architecture and the internal dependencies.  These snapshots may
+be hand drawn by an expert or even automatically generated from the source
+code.  However, in practice these approaches are not well suited to the
+task of comprehending how the system has evolved: hand drawn snapshots are
+usually not maintained as the system ages, and automated architecture
+visualization tools tend to emphasize static views of the current system
+version.  
+
+Emphasizing the changes to a system's architecture requires refocusing the
+supporting tools toward calculating architectural deltas and then
+representing them effectively to the user.  At the extractor level, this
+might include performing fact extraction incrementally; in our case, we
+establish a baseline architecture for the system, and the examine the CVS
+commits that contain the code for the changes.  After analyzing the results
+and reconciling the changes against the baseline, the resulting
+architectural model of the system and its changes can be presented to the
+user; we have chosen to use an animated visualization to do this.
+
+%-- Thus the finer the granularity of change (releases, versions, commits), the
+%-- more data there is to be evaluated. 
+%-- 
+%-- There are important architectural changes that occur at the finely-grained
+%-- level of CVS commits, thus we wanted to show for a large software system
+%-- such as \postgresql what changes had occurred. 
+%-- 
+%-- CVS commits often consist a feature addition that can drastically alter the
+%-- dependencies between modules.
+
+%-- One way to model change over time visually is to use animation. 
+
+Animation is an intuitive and natural way to show change over time
+visually.  We can start by showing the state of the architectural
+dependencies within the system at a chosen baseline version, and then allow
+the user to view the resulting changes progressively as animations to the
+architectural visual model.  Given an interval of time we can take
+advantage of cumulative views and show the differences in the context of
+the whole system rather than just in the context of the instance. This is
+often a problem with existing extractors because they may provide only only
+a snapshot of a change and are not necessarily easy to reconcile to the
+state of the system.
+
+Tools to aid in studying the evolution of software systems typically deal
+with very large data sets; often the data sets are so large that it is
+impossible or impractical to view all of the data at once. Animation
+enables us to traverse this rich and large information space and interpret
+the data in a visual way rather than a textual or statistical way.
+
+Some tools that animate graphs do so by moving the nodes around; instead,
+we avoid moving nodes around and focus more on the dependencies between the
+nodes.  We feel that by keeping the nodes in place, we allow for easier
+comparison and allow one to perceive change easier, although it does
+restrict how we can animate information.  Animation exploits the
+temporality of the data in the repository and better illustrates the
+dynamic behaviour of the evolving dependencies between modules.  We employ
+two approaches to representing the dependencies: the cumulative addition of
+dependency and the difference of edge weights between changes.
+
+We have included a demonstration of  \YARN and its generated \YARN Balls
+(animation) in a flipbook-like form (figures \ref{fig:graph1},
+\ref{fig:graph2}, \ref{fig:graph3}, \ref{fig:graph4}, \ref{fig:graph5},
+\ref{fig:graph6}); thus, the reader can manually animate the printed Yarn
+Ball like a flipbook.
+
+\Subsection{Problem}
+
+\graphfig{1}
+
+%* Map arch to evolution
+%* Will this find us interesting changes
+%* arch to evolution
+%* Visualize 
+
+Our goal is to animate architectural aspects of finely grained change in a
+useful and informative way.  To do so, several questions must first be
+considered:  How do we show the architectural evolution of a software
+system?  What can we hope to gain from such a visualization? Given the
+large amount of data available what is a compact way to explore and exploit
+it?  How can we show the cumulative effects of change?  Can we show change
+effectviely without getting ``lost''?  Can we provide useful parameters to
+let the user fine tune the results?  For example, we considered:
+\begin{description}
+\item[Color:] In section \ref{sec:coloring} we discuss the various ways we
+    can use edge color to indicate and highlight various flavours of change.
+\item[Edge Width:] Edge width can be used to indicate the size of changes;
+    unfortunately, it is hard to represent negative values with edge width.
+    Edge widths can also be used to indicate age of changes; for example,
+    edges can shrink as they age.
+\item[Edge Existence:] Edges can be shown cumulatively or not.  That is,
+    we can show a single change itself or we can show the cumulative effect of
+    the change. Non-cumulative edges are problematic for negative weights,
+    however.
+\end{description}
+These parameters can also represent more complex combinations of attributes,
+rather than just a single attribute.  We can encode a particular
+emphasis such as \abram{fill in example}, or a focus on a certain kind of
+behaviour.
+
+\Section{Background and Related Work}
+
+%* review (less general)
+
+%RIGI
+%SHRIMP
+%LSEDIT
+%PBS
+%SOFTWARE EVOLUTION
+
+There is a considerable amount of related work to this problem; much of the
+research comes from the work done in the Mining Software Repositories
+\cite{church04}, Software Evolution and Software Maintenance
+\cite{software-mining} research communities.
+
+One of the earliest uses of program visualization and animation is the well
+known film ``Sorting Out Sorting'' by Baecker et al.\ \cite{sortingout},
+which animated how values can be sorted by various algorithms.  More
+recently, Gall et al.\ used 3D graphics to compare releases of a project
+side by side \cite{GallJR99}.  Marcus et al.\ have also used 3D
+visualization and animation of source code \cite{maletic}; their use of
+animation was for interactivity rather to represent time.
+
+Our architectural views are similar to those of Rigi \cite{rigi} and Shrimp
+\cite{shrimp}.  In particular, we note that Shrimp makes use of animation
+in its visualization, although it is used to support iterative navigation
+rather than for representing change over time.
+
+% * Baecker Two systems which produce animated representations of the
+% execution of computer program
+
+% 1   R. M. Baecker. Sorting out sorting (video). In Siggraph Video
+% Review 7, 1981.
+% 2   Baecker, R. (1982). Sorting Out Sorting, 30 minute colour sound film, available to order on video from http://www.utoronto.ca/~ic/media/vidcol/science.html
+%  \cite{animated} \cite{sortingout}
+
+%Lehman's was influential in relation to these research communities.
+%Much of our analysis is related to work by
+%Lehman such as ``Programs, Life Cycles and Laws of Software
+%Evolution'' \cite{lehmans}. 
+
+Finally, we note that our architectural model of \postgresql was adapted
+from that of Dong et al.\ \cite{dong}.
+
+
+\Section{Tools}
+
+We first use \cvsup to obtain a local copy of the \postgresql CVS
+repository.  Then \emph{C-REX} is used to extract the architectural
+information from the repository.  Once extraction is done, we run
+\emph{HistODiff}, which makes use of \emph{C-REX}'s output  to compute the
+number of dependencies between subsystems, output the dependency graph, and
+highlight architecturally important change.  Finally, all the dependency
+graphs are read in by \YARN which produces the \YARN Balls, or animations
+that can be played back by the user.  Figure \ref{fig:approach} illustrates
+the extraction flow that we have used in our analysis.
+
+
+\Subsection{C-Rex}
+
+
+%SHORTEN THIS
+
+We use \emph{C-REX} \cite{crex} as our fact extractor, as it has been
+designed specifically for conducting historical architectural analysis.
+It has several advantages over most architectural fact extractors.
+First, traditional snapshot fact extractors, such as \emph{LDX} \cite{ldx},
+\emph{RIGI} \cite{rigi}, and \emph{CPPX} \cite{cppx}, are designed to
+retrieve architectural information from only one version of a system.
+\emph{C-REX} is an evolutionary source code extractor; it extracts
+information from version control systems and recovers architectural
+information over a period of time.  Second, source code might not compile
+properly due to the use of programming language dialects,
+syntax errors, etc.  In this situation, most parser-based extractors will
+fail, but \emph{C-REX} avoids fully parsing the source code by making use
+of the \emph{ctags} source code tokenizing tool \cite{ctags}.  This makes
+\emph{C-REX} more robust than most extractors.  Finally, most of extractors
+operate on the preprocessed code or the object code.  Because of
+compilation flags, a parser-based extraction results may contain
+information specific to only a particular configuration;  \emph{C-REX}
+operates on the original source code, therefore it can extract more
+information relevant to software evolution than parser-based extractors.
+
+\emph{C-REX} analyzes the main branch of a system's source code repository.
+\crex extracts all the changes from each revision and groups revisions into
+transactions.  It outputs two types of information: a \emph{Global Symbol
+Table} and a set of \emph{Transaction Changes}.
+
+The \textbf{Global Symbol Table} maps all of the programming language
+entities ever defined during the history of software development to the
+file locations where these entities are defined.  An entity can be of any C
+language types, such as a macro, variable, function, struct, enum, etc.
+
+\graphfig{2}
+
+\textbf{Transaction Changes} consist of a list of entity changes committed
+by the same author, at approximately the same commit time, with the same
+log message.  It contains the author's name, a unique hash value to
+identify this transaction, the commit time, and the log message as well as
+detailed entity changes.  An entity change can be one of three types
+depending on the scope of the entity: \emph{modified} if the entity exists
+in both the previous and current system revision, \emph{added} if it exists
+only in the current revision, or \emph{removed} if it exists only in the
+preveious revision.
+
+Within each changed entity, \crex keeps tracks of changes in entity types,
+dependencies, comment changes.  If the entity is a function, \crex also
+keeps track of changes in parameters and return types.
+
+
+
+\Subsection{HistODiff}
+
+
+HistODiff is an all encompassing program which associates symbols to files,
+and can handle incrementally changing architectures. It outputs graphs and
+produces reports of changes which are deemed interesting.
+
+
+HistODiff relies on the previous assumptions that files are always
+associated with one module in module hierarchy.
+
+\textbf{Symbol Mapping:} \histodiff has to handle the context of multiple
+symbols to functions and macros. The symbols are supplied by \crex's
+output. The symbol mappings are important because the changes provided
+indicate the symbols the changes depend upon.
+
+\textbf{Architectural Mapping:} \crex produces a list of transactions
+where entities such as functions, macros and variables are added,
+deleted and modified. \histodiff uses this list of transactions and
+updates the architectural dependency graph with the change in
+dependencies.
+
+A less cluttered graph is produced, it is the high level module graph,
+where only user defined subsystems are shown.  Essentially this is an lift
+operation of all the dependencies up to the user defined module level.
+% This allows the output of all the graphs overtime as well as the
+% difference between the 2 graphs.
+It outputs two kinds of graphs: dependency graphs between subsystems
+overtime as well as the difference graph indicating the dependencies
+changes among subsystems before and after the transaction.
+
+The graphs produced have directed weighted edges which indicate the
+number of calls between modules.
+
+\textbf{Filtering:} In large projects such as \postgresql there are
+many transactions. The significance of each is different. We want to
+look for changes to the architecture which might not be found. Large
+changes are often noticeable because they affect many files or had a
+large line count, but small changes of 1 or 2 lines can add drastic
+alter the architecture and change the dependencies between modules.
+These are important changes because they could indicate some kind of
+architectural violation or important feature addition.
+
+
+Our filtering heuristics highlight transactions which affect the number of
+dependencies between the top level subsystems and it satisfies one of the
+following criteria:
+
+\begin{itemize}
+\item if the transaction appears to have dependencies between the two
+    subsystems which previous are not connected; or
+\item the opposite: the transaction changes the dependencies between the
+    two subsystems are all removed and two subsystems become disconnected;
+    or
+\item the transaction doubles the number of dependencies between two
+    subsystems; or
+\item the transaction reduces the number of dependencies by half.
+\end{itemize}
+
+
+
+\Subsection{YARN}
+
+
+\graphfig{3}
+
+
+
+%Show color functions
+%* No colors, just highlight important changes
+%* Highlight latest changes
+
+\evoflash (Yet Another Reverse-engineering Narrative) tries to provide a
+narrative, a story of the evolution of a software project over time.
+\evoflash uses the animation parameters and \emph{HistODiff} output to
+generate \evoflash Balls. \evoflash Balls (the animations) can be
+unravelled (watched) to reveal the narrative of how the system changed over
+time. We like to call this spinning a yarn.
+
+
+\evoflash uses \histodiff's graph output to produce a graphical animation
+of graph of modules represented as nodes and their edges as dependencies.
+These animations are SWF animations which can be embedded into webpages.
+The thickness of the edges suggests how many dependencies exist between two
+modules, we use the function $log^2(weight(u,v))$ to determine the edge's
+thickness based on its weight.  The nodes are statically laid out so they
+don't change position over time. This allows for some sense of coherency
+between changes.
+
+\evoflash animates the changes to the dependencies of a graph over time.
+The modules of the software are laid out statically while the edges are
+animated. 
+
+Edges are directional, when displayed, the edge of lesser weight is
+displayed inside of the edge going in the reverse direction.  Edges are
+also rendered transparently, thus intersections of edges are both visible
+and visually resolvable.
+
+Edges can be animated into two different ways:
+
+
+
+\begin{itemize}
+\item Edges exist over the entire time that there is a dependency between
+    two modules. This view emphasizes the current state of the system and
+    what edges are have been changed. This view is the cumulative view.
+  % what does relative means
+\item Edges only exist per each change. This view emphasizes what the
+    actual changes are by removing the extra information. This kind
+    generally lacks the cumulative aspects of the previous, but the edge
+    weight 
+\end{itemize}
+
+There are multiple possible coloring schemes. Each uses color in a
+different way in the animation to emphasize certain aspect of the changes
+over time. Three such schemes are:
+
+\begin{description}
+
+\label{sec:coloring}
+
+\item[Color Changes on Modification:] Each edge that is modified, changes
+    color; this serves to highlight edges that change. Edges that are
+    changed are highlighted in one color. Thus the more times an edge
+    changes color, the higher the frequency of change that occurs between
+    those two modules.  The colors cycle over time thus new colors indicate
+    new changes and older colors which have lasted show edges which haven't
+    recently changed. Although this scheme does illustrate that change is
+    occurring this coloring scheme can lead to some ambiguity.  The
+    brightening of edges often gives a sense of decay which might not be
+    accurate.
+\item[Highlight and Decay:] Each edge that is modified, is highlighted when
+    a change occurs. It is highlighted by changing the color to a bright
+    bold color, then over the period of a few changes the color of that
+    edge decays back down to a neutral color. This color function
+    emphasizes recent changes. Possible disadvantages include the decaying
+    colors could look like new changes, also selecting an appropriate decay
+    time could be difficult depending on how busy the graph is.
+
+\item[Highlight the Important changes:] This coloring algorithm is much
+    like highlight and decay algorithm except only the important changes
+    are highlighted instead of just new changes. This view emphasizes
+    changes which have been tagged as important.
+
+\end{description}
+
+All of the these algorithms assume that the edges are growing and shrinking
+in width and that only the edges are being animated.
+
+Edge widths can be used in many different ways:
+
+\begin{description}
+\item[Cumulative Width:] Uses a scaling function such as
+    $log^2(weight(u,v))$ we scale the cumulative weight of an edge based on
+    its weight.
+\item[Decaying Edge Width:] The older an edge gets the more it decays, the
+    more it shrinks in width.  Over time an edge decays (shrinks) until it
+    reaches a minimum width. When a change occurs it modifies the width of
+    the edge back to it's width according to the scaling function. 
+\item[Edge Width as Age:] Instead of the number of dependencies, edge width
+    alone could indicate when the last change to the dependencies between
+    two modules.
+\end{description}
+
+The changes animated are transactions, one frame represents one
+transaction. For instance, \postgresql had over 10,800 frames of animation.
+
+In the top corner, the current date of the transaction is shown.
+Underneath it is the order of the revision. At the bottom a time-line
+relationally shows where the transaction is with respect to the other
+revisions. The time-line is click-able to allow jumping throughout the
+evolution of the project.
+
+The animation produced is a Macromedia Flash animation. It uses vector
+graphics and is easily embeddable into web pages. This could be used in the
+such hypermedia software evolution systems like the  Software Bookshelf
+\cite{pbs} or SoftChange \cite{dmgseke2004}. 
+
+Modules can be laid out manually or automatically. Automatic layout
+algorithms currently include radial or matrix layout. The radial layout is
+useful for systems like \postgresql where there are many dependencies, also
+we like the similarity it has to a ball of yarn.
+
+Figures 
+\ref{fig:graph1}, 
+\ref{fig:graph2}, 
+\ref{fig:graph3}, 
+\ref{fig:graph4}, 
+\ref{fig:graph5}, 
+and 
+\ref{fig:graph6} depicts 6 frames from \evoflash (cropped) over time.
+Figure \ref{fig:evoscreen} depicts a screen-shot of \evoflash in action.
+
+%\begin{figure}[htbp]
+%  \centering
+%\begin{tabular}{lr}
+%    \igWh{presentation/graph1} &   \igWh{presentation/graph2} \\
+%    \igWh{presentation/graph3} &   \igWh{presentation/graph4} \\
+%    \igWh{presentation/graph5} &   \igWh{presentation/graph7} \\
+%\end{tabular}
+%\caption{Examples of graphs produced by \evoflash with \postgresql}
+%\label{fig:evoflash}
+%\end{figure}
+%
+%\begin{figure}[htbp]
+%  \centering
+%    \igWh{evoflash}
+%\caption{Screen-shot of \evoflash with \postgresql}
+%\label{fig:evoscreen}
+%\end{figure}
+%
+
+
+
+
+\Section{Case Study of \postgresql}
+
+%Show it more through time
+%* SEE REPORT
+%* A Story with evoflash
+
+\Subsection{Architecture}
+
+\postgresql is a popular Open Source DBMS.  \postgresql has a very well
+defined layered architecture.  Please see figure \ref{fig:architecture} for
+a clear overview of the \postgresql architecture.  The layers pattern gives
+the software many advantages including the separation of concerns and
+abstraction.
+
+The three layers are :
+
+\begin{description}
+\item[Client Interface Layer:] This layer accepts inputs from the users
+    through a variety of user interfaces.  It submits the queries to the
+    Backend layer below and returns the answers.  \graphfig{4}
+\item[Backend:] This layer parses the user's query, expands it and presents
+    it to the optimizer which uses information to produce the most
+    efficient execution plan for the evaluation.  In order to execute the
+    plan tree, this layer uses the file manipulating functions in the
+    lowest layer.  
+\item[Data Store Layer:] This layer deals with managing space on disk,
+    where the data is stored.  Upper layers requires this layer to write or
+    read pages.  
+\end{description}
+
+Important sub modules of the layers include:
+
+\begin{description}
+\item[LibPQ:] enables the client or user to ask queries of the RDBMS.
+\item[System Control Manager:] handles authentication and starts and stops
+    \texttt{postgres} processes.
+\item[Traffic Cop:] delegates query jobs to the various query sub modules.
+\item[Parser:] This modules tokenizes and parses SQL queries.
+\item[Rewriter:] is the primary module for query rewriting queries which
+    are recursive or can be optimized.
+\item[Optimizer:] attempts to choose an optimal query plan structure for a
+    given query.
+\item[Executor:] takes the query plan (execution tree) and executes the
+    query.
+\item[Command:] is a query which doesn't need the Optimizer.
+\item[Catalog:] is where the RDBMS stores the meta data, e.g information
+    about tables, columns, values etc.
+\item[Nodes:] are responsible for storing the queries in a specified common
+    data structure called Nodes Structure.
+\item[Util:] This consists of procedures and routines that different
+    modules use to do their jobs. It acts more as a support module for the
+    entire Backend.
+\item[Storage Manager:] is found inside of the data layer managing files
+    and pages of the database.
+\end{description}
+
+\Subsection{A Visual Walk Through of PostgreSQL}
+
+
+
+%XXXX THIS SECTION IS HORRIBLE REWRITE
+
+We evaluate the history of architectural changes of \postgresql by manually
+inspecting a few ``architectural important'' transactions.  \histodiff has
+flagged out about 100 transactions which are considered as ``architectural
+important'' changes.  They have either added or removed dependencies which
+makes two subsystems connected or disconnected, or significantly increased
+or decreased the degree of coupling between subsystems.  We divided these
+transactions into 3 parts of equal number of flagged changes.  Each part
+ranged over a different amount of time because less and less of the changes
+we were looking for occurred:
+
+%XXXXXXXX PLEASE CHECK THIS XXXXXXXXXXXX
+\begin{itemize}
+\item 1996 to 1998: \postgresql is released as open source software.
+    Portability and reimplementation of features such as ODBC are included
+    (see figures \ref{fig:graph1} and \ref{fig:graph2}).
+
+\graphfig{5}
+
+\item 1998 to 2000: \postgresql is still in flux, ODBC updates occurred and
+    \postgresql was extended by the PL/pgSQL language (see figures
+    \ref{fig:graph3} and \ref{fig:graph4}).  \item 2000 to 2005:
+    \postgresql was being maintained, less features are added, more
+    auditing and bug fixing occurs (see figures \ref{fig:graph5} and
+    \ref{fig:graph6}).
+\end{itemize}
+
+There were many changes from 1996 to 2005 that were notable, we have
+highlighted a few and have provided screenshots of the revisions.  These
+screenshots help highlight the cumulative progression of architectural
+dependency over time as well they highlight the architecturally significant
+changes that occurred over time.
+
+The first notable change is from figure \ref{fig:graph1} which shows the
+result of adding PL/TCL. PL/TCL is a extension to \postgresql which allows
+the TCL programming language to be used in stored procedures.  The 2
+dependencies that are were changed are highlighted, these were between the
+System Controller and Util (where PL/TCL was stored).
+
+\Subsection{\postgresql: 1996 to 1998}
+
+%INTRODUCTION (DURATION RELEASES...)
+The theme of \postgresql from 1996 to 1998 was the transition from a closed
+project to an open source project used by many users on many different
+platforms ranging from UNIX to Win32. It covered releases 1.06 to 6.3.
+
+\begin{description}
+\item[Security:] Many changes were related to authentication. These
+    included host based authentication, plain-text password authentication,
+    and checking if \postgresql was running as the root user.
+\item[Portability:] There were two kinds of portability issues dealt with:
+    wrapping systems calls and distributing the output of tools such as
+    bison and flex.  System call wrapping included wrapping signal with
+    portable signal call code, as well as providing portable file open and
+    close calls (for SunOS).  Flex and Bison output was added for systems
+    which lacked compatible versions of the utilities (FreeBSD and AT\&T
+    UNIX).
+\item[Bugs:] There were issues regarding the precedence of attributes from
+    certain tables not being handled appropriately.
+\item[Extensibility:] The server programming interface was added, it allows
+    \postgresql to be used from languages such as C and TCL. As well PL/TCL
+    was added which allows stored procedures to use TCL. Figure
+    \ref{fig:graph1} depicts this change.
+\item[Optimization:] The heap tuples code was optimized by inlining the
+    code via a macro.
+\item[Updated Code:] Old transactions code \emph{Time Travel} was removed.
+    The old ODBC driver was updated with a new ODBC driver.  Figure
+    \ref{fig:graph2} depicts this change. 
+\end{description}
+
+
+
+\Subsection{\postgresql: 1998 to 2000}
+
+The next period is from May, 1998 to September 2000, which approximately
+corresponds to Releases 6.4 to Release 7.0.3.  There are total 11 releases
+during this time period.  
+
+\begin{description}
+\item[ODBC:] they have updated ODBC driver to version 0.0244.
+\item[Extension:] The developers added a second procedural language
+    PL/pgSQL and then later moved into the official distribution. Another
+    large change was when PL/pgSQL was migrated from the contribution into
+    the core distribution of \postgresql. This change is depicted in figure
+    \ref{fig:graph3}
+\item[Enhancements: ] Developers improved the client/server asynchronous
+    communication; added support for outer joins, and read/write locks;
+    rewrote the \emph{Memory Management Process(mmgr)} utilities (this is
+    depicted in figure \ref{fig:graph4}) for better handling of out of
+    memory error; changed the header comments of functions.
+    
+\end{description}
+
+%   \item[Graphical Snapshot: ]
+%   The two graphs are snapshot taken from \evoflash indicating
+%   the number of dependencies between subsystems at the beginning and end of this period.
+% \begin{figure}[htbp]
+%   \centering
+% \begin{tabular}{lr}
+%     \igWh{presentation/graph2} & \igWh{presentation/graph3} \\
+% \end{tabular}
+% \caption{Two snapshots of \postgresql in 1998 and 2001 by \evoflash}
+% \end{figure}
+%
+% % Include diagram
+% Comparing the two diagrams,
+% edges between PARSER and LIBPQ, REWRITER and UTIL are thickening;
+% new dependencies has added between EXECUTOR and SYSTEMCONTROLMANAGER.
+
+
+
+\Subsection{\postgresql: 2000 to 2005}
+
+\graphfig{6}
+
+The period 2000 to 2005 covered \postgresql releases 7.0.3 to 7.4.8.  This
+period contains one third of the revisions that were flagged important in
+the repository.  Large changes to the source included new implementations
+of SQL statements, improving triggers, JOINS and dropped columns. Most of
+the changes were maintenance and improvement of properties such as
+robustness, security and performance.  Security improvements were spurred
+by problems found by ``white hat hackers'', who found flaws related to
+interrupt handling and critical sections. The changes that occurred due to
+these flaws are depicted in figure \ref{fig:graph5}.  Better support for
+Win32 signal handlers was also added (see figure \ref{fig:graph6}).  Figure
+\ref{fig:pgsql05} depicts the changes made to the system starting from 2001
+to 2005, also the larger changes are highlighted.
+
+
+%\begin{figure}[htbp]
+%  \centering
+%\begin{tabular}{lr}
+%   \igWh{presentation/graph4} &   \igWh{presentation/graph7} \\
+%\end{tabular}
+%\caption{Two snapshots of \postgresql in 2001 and 2005 by \evoflash}
+%\label{fig:pgsql00}
+%\end{figure}
+
+\begin{figure*}[t]
+  \centering
+\begin{tabular}{lr}
+    \igWh{presentation/graph4} & \igWh{analysis2005}\\
+\end{tabular}
+\caption{Important architectural changes done during the last 5
+years} \label{fig:pgsql05}
+\end{figure*}
+
+
+\Section{Future Work}
+
+
+%* Layout
+%* Interactivity
+%* Hierarchy
+%* Metrics
+
+The main extension to \YARN will be to its \YARN Ball user interface.  More
+layout algorithms will be added to YARN.  We plan to add more interactivity
+to the animation. This would include dragging and dropping modules as well
+as expanding sub modules.  This would allow for hierarchical navigation of
+sub modules.  Different views of the architecture are planned such as
+source control view which shows which modules are coupled together per
+commit.
+
+Other work includes evaluating the use of animation for maintenance work.
+We have yet to answer the question if this animation is useful to
+developers or just researchers.
+
+
+\Section{Conclusions}
+
+%NEEDS MORE WORK
+
+In conclusion we proposed and implemented a system which can extract the
+dependency information from a repository and aggregate it into an
+animation. These animations, or \YARN Balls, then can be embedded into
+webpages or shared in order to communicate change based dependency
+information about software projects.  Many different kinds of animations
+can be produced.
+
+The contributions of this paper thus included: an approach for animated the
+evolution of a project's dependencies in a coherent static manner; a system
+to view changes and the cumulative effects of the changes; provide a finely
+grained view of the evolution of the project.
+
+
+
+
+\begin{figure*}[p]
+  \centering
+    \igW{evoflash}
+\caption{Screen-shot of \YARN with \postgresql}
+\label{fig:evoscreen}
+\end{figure*}
+
+
+\begin{figure*}[p]
+  \centering
+  \igH{YARNApproach}
+  \caption{Flow Control of Extraction with our tools}
+  \label{fig:approach}
+\end{figure*}
+
+\begin{figure*}[p]
+  \centering
+    \igW{architecture}
+\caption{Top Level Architecture of \postgresql}
+\label{fig:architecture}
+\end{figure*}
+
+
+\bibliographystyle{latex8}
+
+\bibliography{msr-evoflash}
+
+\end{document}

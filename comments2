@@ -1,0 +1,67 @@
+
+* Jack changes
+
+* histodiff
+* scalability
+  * defend lifting
+  * overplot & layout
+
+Against. 1. Scalability of layout not discussed. 
+
+
+
+X The related research section is way too short. Important references are
+X missing and the mentioned related work are not compared with your approach.
+X Just to mention some approaches which visualizes modules and dependencies
+X between them: - 
+X 
+X Lungu et al. of CSMR 2007
+X 
+X M. Fischer and H. Gall, EvoGraph: A Lightweight Approach to
+X Evolutionary and Structural Analysis of Large Software Systems, WCRE '06 -
+X 
+X M. D'Ambros and M. Lanza, Reverse Engineering with Logical Coupling, WCRE
+X '06 - 
+X 
+X J. Ratzinger, M. Fischer, H. Gall, EvoLens: Lens-View Visualizations
+X of Evolution Data, IWPSE '05 - 
+X 
+X M. Pinzger, H. Gall, M. Fischer and M.
+X Lanza, Visualizing Multiple Evolution Metrics, SoftVis '05 
+X 
+X Another missing
+X reference is - T. Zimmermann and P. Weissgerber, Preprocessing CVS Data for
+X Fine-Grained Analysis, MSR '04 when you describe "Transaction Changes" in
+X section 3.1
+X 
+X 
+
+
+X - In figure 4 you say that the most notable dependency is between
+X Util and System Control Manager. Why not also Parser and Executor with
+X Util? They have the same color. 	
+
+X figure 6 is it represented?
+X 3. Section 5; penultimate paragraph â€“ I did not see these relationships
+X in Figure 6.
+
+
+
+X * indicate we looked at the immediate changes to the important change
+X * what if a file moves
+X * decay width gives wrong impression
+X * radial simplicity
+X *- p2: important change -> important changes 
+X *- p3: can also add drastically alter -> can also drastically alter 
+X *- p4: All of the the -> All of the -
+X *- p4: stationery -> stationary 
+X *- p5: dependencies of between modules -> dependencies between modules 
+X *- p5: module for query rewriting queries -> module for rewriting queries 
+X *- p6: introduce a linebreak before the Traffic
+X Cop description
+X * Small points: 1. Section 3.2; Architectural Mapping â€“ you use the term
+X  â€˜deletedâ€™ but use â€˜removedâ€™ near the end of 3.1.
+X * 2. Section 3.3; Cumulative Width â€“ did you mean log squared?
+
+
+

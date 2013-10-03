@@ -1,0 +1,247 @@
+Subject:
+VISSOFT 2007 Notification
+From:
+VISSOFT 2007 - CyberChair <collard@cs.kent.edu>
+Date:
+Fri, 20 Apr 2007 06:43:23 -0400
+To:
+ahindle@cs.uwaterloo.ca (Abram Hindle)
+CC:
+jmaletic@cs.kent.edu (Jonathan Maletic), alext@win.tue.nl (Alexandru Telea), collard@cs.kent.edu (Michael Collard), zmjiang@cs.uwaterloo.ca (ZhenMing Jiang), wkoleila@cs.uwaterloo.ca (Walid Koleilat), migod@cs.uwaterloo.ca (Michael Godfrey), holt@cs.uwaterloo.ca (Richard Holt)
+
+Dear Abram Hindle,
+
+We are pleased to inform you that your paper, entitled
+
+"YARN: Animating Software Evolution"
+
+has been ACCEPTED for publication as a FULL PAPER in the proceedings
+of the 4th IEEE International Workshop on Visualizing Software for
+Understanding and Analysis (VISSOFT) 2007.
+
+All papers went through a rigorous reviewing process and each paper
+was reviewed by at least three program committee members.  Out of 34
+papers submitted, 15 were accepted as full papers and another 6 as
+short papers.  Each paper will be presented during one of the
+technical presentation sessions in the workshop on June 25, 2007 in
+Banff, Canada.
+
+We have enclosed the set of reviews of your paper.  Please make sure
+that in your preparation of the final paper you carefully address the
+reviewers' comments.  Additionally, at least ONE author of your paper
+is required to register for the workshop (as a non-student) for your
+paper to appear in the proceedings.  Registration will open soon;
+please see the conference web site for further information.
+
+http://www.program-comprehension.org/vissoft07/
+
+The page limit for full papers is 8 pages; additionally there will be
+one page for color versions of figures (to be located in a separate
+appendix).  There are no additional pages allowed.  Please note that
+the DEADLINE for the camera-ready final version of your paper and
+copyright release form is April 30th (midnight EST).  Papers submitted
+later than this deadline will not be included in the proceedings.
+
+The AUTHOR KIT with instructions for final submission of your paper
+including format, copyright, etc. are available at:
+
+http://www.program-comprehension.org/vissoft07/authorkit.html
+
+Congratulations again on having your paper accepted and thank you for
+your submission.  We look forward to meeting with you this June in
+Banff.
+
+Sincerely,
+Jonathan Maletic and Alex Telea
+VISSOFT 2007 Program Chairs
+*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=
+
+First reviewer's review:
+
+          >>> Summary of the paper <<<
+
+The history of system architecture changes are summarized via animation. 
+
+
+
+          >>> Comments <<<
+
+This is a good paper, so good, in fact, that my copy does -not- have the
+usual scratchings that I put on the manuscript that I turn into my review.
+
+
+
+          >>> Points in favour or against <<<
+
+My -only- criticism was that I wanted to know a bit more about HistODiff,
+the analysis package. I did not see a citation for it; I think that it is
+an important part of the visualization package and should get a higher
+profile...
+
+
+
+ =*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=
+
+Second reviewer's review:
+
+          >>> Summary of the paper <<<
+
+The authors present an approach to visualize the architectural evolution of
+software by means of animated YARN balls depicting the system modules and
+their dependencies. Dependencies are extracted from transactions to the
+versioning systems, and are visualized by links between the packages, these
+being placed in a circle. Each transaction represent a single frame of the
+animation. The tool allows the animation to play, pause (paws ;-)) and to
+navigate to each frame via a progress bar. It is also parametrized to
+highlight the evolution of the dependencies in several ways. The approach
+has been evaluated by ten subjects.
+
+
+
+          >>> Comments <<<
+
+The paper as a whole reads nicely, but has some major flaws:
+
+- How do you tackle scalability? If the number of modules goes beyond a
+certain number, as is certainly the case for large systems, then the ball
+will overplot all too easily. I guess you abstract (or lift as you say),
+but then you would not be rendering the "architectural elements" anymore. -
+related work is covered decently, but I thnk you shoulw check out a paper
+by Lungu et al. of CSMR 2007, where they present a "filmstrip" idea to
+visualize the evolution of dependencies between architectural elements. -
+why do you use "lifting" instead of abstracting? Introducing yet another
+word to express the same concept seems unnecessary to me. - you do not
+mention the overplotting problem which is certainly one of the major
+drawbacks of your approach. - on page 3 you say that you assume that each
+file is associated with a single module. What if files move between modules
+during the evolution? Do you handle this or not? How? - on page 3 you say
+that you lay out the module in a radial pattern "due to the high coupling".
+This is cheesy at best! What does coupling have to do with that? It's
+better if you just mention that you use this kind of layout because of
+simplicity. - still on page 3 you mention that an edge of lesser weight is
+shown inside of the edge going in the reverse direction. What if they have
+the same or a similar weight? - on page 5 you use "decaying edge width" as
+a technique to emphasize the current change over the past changes. I think
+this instead leads to a falsification of the actual relationship. Please
+elaborate on this. - on page 5 you mention that you create the animations
+using SWF and therefore you could embed them in a browser..well, why didn't
+you do that then? Especially for visualizations supporting animations it
+would be important to *see* them, instead of looking at a bunch of static
+screen shots which are hard to interpret. - the informal survey is
+worthless as you put it, because you exither expand on it and provide some
+real data or you cut it away to make more space for a more in-depth
+description of how your approach works. - the flipbook idea is nice but
+does not work..what am I supposed to do?
+
+The related research section is way too short. Important references are
+missing and the mentioned related work are not compared with your approach.
+Just to mention some approaches which visualizes modules and dependencies
+between them: - M. Fischer and H. Gall, EvoGraph: A Lightweight Approach to
+Evolutionary and Structural Analysis of Large Software Systems, WCRE '06 -
+M. D'Ambros and M. Lanza, Reverse Engineering with Logical Coupling, WCRE
+'06 - J. Ratzinger, M. Fischer, H. Gall, EvoLens: Lens-View Visualizations
+of Evolution Data, IWPSE '05 - M. Pinzger, H. Gall, M. Fischer and M.
+Lanza, Visualizing Multiple Evolution Metrics, SoftVis '05 Another missing
+reference is - T. Zimmermann and P. Weissgerber, Preprocessing CVS Data for
+Fine-Grained Analysis, MSR '04 when you describe "Transaction Changes" in
+section 3.1
+
+The analysis of PostgreSQL is nice because it covers its entire history and
+because you describe motivations for your findings. However I have the
+following remarks: - You mention many times that "...the revisions
+revealed..." But the revisions in the time interval you consider are large
+numbers, so I am wondering how do you do this manual inspection of hundreds
+of revisions in such a large system. This should be discussed because this
+"revisions investigation" is mentioned many times. - In some examples,
+there is a "gap" between the picture you show and the description you do,
+in the sense that I do not see in the picture what you describe. It is like
+you know the history of PostgreSQL and you "stick it" on the pictures. For
+example: 	- In figure 4 you say that the most notable dependency is between
+Util and System Control Manager. Why not also Parser and Executor with
+Util? They have the same color. 	- In figure 5 I do not see much in the
+picture. There are too many notable edges. 	- In figure 6 the dependencies
+you mention are not (all) the most notable in the picture.
+
+The visualization can be improved in the following ways: - The labels
+(module names) should be put outside of the circular layout, because like
+they are now, they cover the edges making them less readable. - The tool
+should provide some panels or tables which show the actual number
+represented with color or size in the visualization (number of
+dependencies, ages, etc.). - Since the modules layout is fixed, how the
+addition or removal of a module is managed? This should be discussed. -
+Sometimes white edges cover colored edges. I think that it is better to put
+all the white ones behind the colored edges, to improve readability. - The
+concept of "significant changes" is used several times. A discussion about
+the rational behind it is needed. - The last paragraph in "Color Changes
+and modification" in section 3.3, from "This coloring scheme..." is not
+clear. - In "Decaying Edge Width" in section 3.3, you say that when a
+dependency does not have modification it is decaying. I think that this can
+also be a sign of stability of the dependencies. Here you need more
+discussion to support your assumption.
+
+There's a bunch of typos:
+
+- p2: important change -> important changes - p3: can also add drastically
+alter -> can also drastically alter - p4: All of the the -> All of the -
+p4: stationery -> stationary - p5: dependencies of between modules ->
+dependencies between modules - p5: module for query rewriting queries ->
+module for rewriting queries - p6: introduce a linebreak before the Traffic
+Cop description
+
+
+
+          >>> Points in favour or against <<<
+
++ : decently written with a real implementation behind - : premature work,
+the tool needs to be greatly refined and most of the decisions WRT feature
+implementation are not convincing
+
+
+
+ =*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=
+
+Third reviewer's review:
+
+          >>> Summary of the paper <<<
+
+Paper presents an animation for representing the evolution of software
+systems.
+
+
+
+
+
+          >>> Comments <<<
+
+It might be worth putting your Flip-book animation in the right columns so
+it can be flipped in the proceedings.
+
+Small points: 1. Section 3.2; Architectural Mapping â€“ you use the term
+â€˜deletedâ€™ but use â€˜removedâ€™ near the end of 3.1.
+
+2. Section 3.3; Cumulative Width â€“ did you mean log squared?
+
+3. Section 5; penultimate paragraph â€“ I did not see these relationships
+in Figure 6.
+
+
+
+          >>> Points in favour or against <<<
+
+For. 1. Interesting visualisation and animation. 2. Well worked through
+example.
+
+Against. 1. Scalability of layout not discussed. 
+
+
+
+ =*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=
+
+ 
+ ** ACCEPT: CRM114 PASS osb unique microgroom Matcher ** 
+CLASSIFY succeeds; success probability: 1.0000  pR: 45.2509
+Best match to file #0 (/home/abez/crm/nonspam.css) prob: 1.0000  pR: 45.2509  
+Total features in input file: 15264
+#0 (/home/abez/crm/nonspam.css): features: 607064, hits: 11775470, prob: 1.00e+00, pR:  45.25 
+#1 (/home/abez/crm/spam.css): features: 3969927, hits: 7176924, prob: 5.61e-46, pR: -45.25 
+ 

@@ -1,0 +1,4 @@
+define(`a',1)
+define(`m4inc',define($1,expr(indir($1) + 1)))
+m4inc(a)
+a

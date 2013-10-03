@@ -1,0 +1,86 @@
+\begin{thebibliography}{10}\setlength{\itemsep}{-1ex}\small
+
+\bibitem{cppx}
+{CPPX: Open Source C++ Fact Extractor}.
+\newblock Technical report, University of Waterloo.
+\newblock http://swag.uwaterloo.ca/~cppx.
+
+\bibitem{ctags}
+{Exuberant Ctags}.
+\newblock Technical report.
+\newblock http://ctags.sourceforge.net.
+
+\bibitem{sortingout}
+R.~Baekcer and D.~Sherman.
+\newblock Sorting out sorting.
+\newblock 30 minute colour sound film, 1981.
+
+\bibitem{church04}
+D.~Church.
+\newblock A survey of techniques for the recovery and observation of software
+  evolution.
+\newblock Unpublished, 2004.
+
+\bibitem{dong}
+X.~Dong, L.~Zou, and Y.~Lin.
+\newblock Conceptual/concerte architecture of postgresq.
+\newblock Technical report, University of Waterloo, 2004.
+
+\bibitem{pbs}
+P.~Finnigan, R.~Holt, I.~Kalas, S.~Kerr, K.~Kontogiannis, H.~Muller,
+  J.~Mylopoulos, S.~Perelgut, M.~Stanley, and K.~Wong.
+\newblock The software bookshelf.
+\newblock pages 564--593, November 1997.
+
+\bibitem{GallJR99}
+H.~Gall, M.~Jazayeri, and C.~Riva.
+\newblock Visualizing software release histories: The use of color and third
+  dimension.
+\newblock In {\em ICSM}, pages 99--108, 1999.
+
+\bibitem{dmgseke2004}
+D.~M. German, A.~Hindle, and N.~Jordan.
+\newblock Visualizing the evolution of software using softchange.
+\newblock In {\em Proceedings SEKE 2004 The 16th Internation Conference on
+  Software Engineering and Knowledge Engineering}, pages 336--341, 3420 Main
+  St. Skokie IL 60076, USA, June 2004. Knowledge Systems Institute.
+
+\bibitem{software-mining}
+A.~Hassan.
+\newblock Mining software repositories to guide software development.
+\newblock http://plg.uwaterloo.ca/~aeehassa/home/pubs.html, 2005.
+\newblock Accessed July.
+
+\bibitem{crex}
+A.~E. Hassan and R.~C. Holt.
+\newblock {C-REX: An Evolutionary Code Extractor for C - (PDF)}.
+\newblock Technical report, University of Waterloo.
+\newblock http://plg.uwaterloo.ca/~aeehassa/home/pubs/crex.pdf.
+
+\bibitem{maletic}
+A.~Marcus, L.~Feng, and J.~I. Maletic.
+\newblock 3d representations for software visualization.
+\newblock In {\em SoftVis '03: Proceedings of the 2003 ACM symposium on
+  Software visualization}, pages 27--ff, New York, NY, USA, 2003. ACM Press.
+
+\bibitem{rigi}
+H.~A. Muller and K.~Klashinsky.
+\newblock {Rigi - A System for Programming-in-the-large}.
+\newblock Technical report, In IEEE 10th International Conference on Software
+  Engineering(ICSE-1998), April 1998.
+
+\bibitem{shrimp}
+M.-A.~D. Storey, C.~Best, and J.~Michaud.
+\newblock Shrimp views: An interactive environment for exploring java programs.
+\newblock In {\em 9th International Workshop on Program Comprehension (IWPC
+  2001), 12-13 May 2001, Toronto, Canada}, pages 111--112. IEEE Computer
+  Society, 2001.
+
+\bibitem{ldx}
+J.~Wu and R.~C. Holt.
+\newblock {Linker-Based Program Extraction and Its Uses in Studying Software
+  Evolution}.
+\newblock Technical report, In Proceedings of the International Workshop on
+  Unanticipated Software Evolution (FUSE 2004), March 2004.
+
+\end{thebibliography}

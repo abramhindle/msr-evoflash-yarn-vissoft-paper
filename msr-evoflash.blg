@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99c (Web2C 7.4.5)
+The top-level auxiliary file: msr-evoflash.aux
+The style file: latex8.bst
+Database file #1: msr-evoflash.bib
+Warning--to sort, need editor, organization, or key in DBLP:conf/wcre/2006
+Warning--empty journal in pbs
+Warning--empty booktitle in rigi
+You've used 24 entries,
+            2118 wiz_defined-function locations,
+            632 strings with 7933 characters,
+and the built_in function-call counts, 8631 in all, are:
+= -- 876
+> -- 401
+< -- 13
++ -- 156
+- -- 132
+* -- 538
+:= -- 1369
+add.period$ -- 79
+call.type$ -- 24
+change.case$ -- 140
+chr.to.int$ -- 0
+cite$ -- 27
+duplicate$ -- 358
+empty$ -- 647
+format.name$ -- 134
+if$ -- 1905
+int.to.chr$ -- 0
+int.to.str$ -- 24
+missing$ -- 16
+newline$ -- 122
+num.names$ -- 49
+pop$ -- 165
+preamble$ -- 1
+purify$ -- 114
+quote$ -- 0
+skip$ -- 300
+stack$ -- 0
+substring$ -- 446
+swap$ -- 119
+text.length$ -- 13
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 94
+warning$ -- 3
+while$ -- 76
+width$ -- 26
+write$ -- 264
+(There were 3 warnings)

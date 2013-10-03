@@ -1,0 +1,143 @@
+\begin{thebibliography}{10}\setlength{\itemsep}{-1ex}\small
+
+\bibitem{DBLP:conf/wcre/2006}
+{\em 13th Working Conference on Reverse Engineering (WCRE 2006), 23-27 October
+  2006, Benevento, Italy}. IEEE Computer Society, 2006.
+
+\bibitem{sortingout}
+R.~Baecker and D.~Sherman.
+\newblock {Sorting Out Sorting}.
+\newblock 30 minute colour sound film, 1981.
+
+\bibitem{storyboard}
+D.~Beyer and A.~E. Hassan.
+\newblock {Animated Visualization of Software History using Evolution
+  Storyboards}.
+\newblock In {\em WCRE\/} \cite{DBLP:conf/wcre/2006}, pages 199--210.
+
+\bibitem{DBLP:conf/wcre/DAmbrosL06}
+M.~D'Ambros and M.~Lanza.
+\newblock {Reverse Engineering with Logical Coupling.}
+\newblock In {\em WCRE\/} \cite{DBLP:conf/wcre/2006}, pages 189--198.
+
+\bibitem{dong}
+X.~Dong, L.~Zou, and Y.~Lin.
+\newblock {Conceptual/Concerte Architecture of PostgreSQL}.
+\newblock Technical report, University of Waterloo, 2004.
+
+\bibitem{DBLP:conf/vissoft/2005}
+S.~Ducasse, M.~Lanza, A.~Marcus, J.~I. Maletic, and M.-A.~D. Storey, editors.
+\newblock {\em Proceedings of the 3rd International Workshop on Visualizing
+  Software for Understanding and Analysis, VISSOFT 2005, September 25, 2005,
+  Budapest, Hungary}. IEEE Computer Society, 2005.
+
+\bibitem{pbs}
+P.~Finnigan, R.~Holt, I.~Kalas, S.~Kerr, K.~Kontogiannis, H.~Muller,
+  J.~Mylopoulos, S.~Perelgut, M.~Stanley, and K.~Wong.
+\newblock {The Software Bookshelf}.
+\newblock pages 564--593, November 1997.
+
+\bibitem{DBLP:conf/wcre/FischerG06}
+M.~Fischer and H.~Gall.
+\newblock {EvoGraph: A Lightweight Approach to Evolutionary and Structural
+  Analysis of Large Software Systems}.
+\newblock In {\em WCRE\/} \cite{DBLP:conf/wcre/2006}, pages 179--188.
+
+\bibitem{GallJR99}
+H.~Gall, M.~Jazayeri, and C.~Riva.
+\newblock Visualizing software release histories: The use of color and third
+  dimension.
+\newblock In {\em ICSM '99: Proceedings of the IEEE International Conference on
+  Software Maintenance}, page~99, Washington, DC, USA, 1999. IEEE Computer
+  Society.
+
+\bibitem{dmgseke2004}
+D.~M. German, A.~Hindle, and N.~Jordan.
+\newblock {Visualizing the evolution of software using softChange}.
+\newblock In {\em SEKE 2004 Proceedings}, pages 336--341. Knowledge Systems
+  Institute, June 2004.
+
+\bibitem{crex}
+A.~E. Hassan and R.~C. Holt.
+\newblock {C-REX: An Evolutionary Code Extractor for C - (PDF)}.
+\newblock Technical report, University of Waterloo, 2004.
+\newblock http://plg.uwaterloo.ca/\~{}aeehassa/home/pubs/crex.pdf.
+
+\bibitem{yarnball}
+A.~Hindle, Z.~Jiang, W.~Koleilat, M.~W. Godfrey, and R.~C. Holt.
+\newblock Yarn ball example, 2007.
+\newblock http://swag.uwaterloo.ca/\~{}ahindle/yarn/postgres.html.
+
+\bibitem{holt02software}
+R.~Holt.
+\newblock {Software Architecture as a Shared Mental Model}.
+\newblock In {\em Proceedings of the ASERC Workhop on Software Architecture},
+  University of Alberta, Aug. 2002.
+
+\bibitem{lungu}
+M.~Lungu and M.~Lanza.
+\newblock {Exploring Inter-Module Relationships in Evolving Software Systems}.
+\newblock {\em CSMR 2007}, 0:91--102, 2007.
+
+\bibitem{cppx}
+A.~J. Malton.
+\newblock {CPPX: Open Source C++ Fact Extractor}.
+\newblock Technical report, University of Waterloo, 2001.
+\newblock http://swag.uwaterloo.ca/\~{}cppx.
+
+\bibitem{maletic}
+A.~Marcus, L.~Feng, and J.~I. Maletic.
+\newblock {3D Representations for Software Visualization}.
+\newblock In {\em SoftVis '03: Proceedings of the 2003 ACM symposium on
+  Software visualization}, pages 27--ff, New York, NY, USA, 2003. ACM Press.
+
+\bibitem{DBLP:conf/vissoft/MesnageL05}
+C.~Mesnage and M.~Lanza.
+\newblock {White Coats: Web-Visualization of Evolving Software in 3D.}
+\newblock In Ducasse et~al. \cite{DBLP:conf/vissoft/2005}, pages 40--45.
+
+\bibitem{rigi}
+H.~A. Muller and K.~Klashinsky.
+\newblock {Rigi - A System for Programming-in-the-large}.
+\newblock April 1998.
+
+\bibitem{pinzger-softvis05}
+M.~Pinzger, H.~Gall, M.~Fischer, and M.~Lanza.
+\newblock {Visualizing Multiple Evolution Metrics}.
+\newblock In {\em Proceedings of the ACM Symposium on Software Visualization},
+  pages 67--75, St. Louis, Missouri, 2005. ACM Press.
+
+\bibitem{ratzinger-iwpse05}
+J.~Ratzinger, M.~Fischer, and H.~Gall.
+\newblock {EvoLens: Lens-View Visualizations of Evolution Data}.
+\newblock In {\em Proceedings of the International Workshop on Principles of
+  Software Evolution}, pages 103--112, Lisbon, Portugal, September 2005. IEEE
+  Computer Society Press.
+
+\bibitem{shrimp}
+M.-A.~D. Storey, C.~Best, and J.~Michaud.
+\newblock {SHriMP Views: An Interactive Environment for Exploring Java
+  Programs.}
+\newblock In {\em 9th International Workshop on Program Comprehension (IWPC
+  2001), 12-13 May 2001, Toronto, Canada}, pages 111--112. IEEE Computer
+  Society, 2001.
+
+\bibitem{DBLP:conf/vissoft/TeleaV05}
+A.~Telea and L.~Voinea.
+\newblock {Interactive Visual Mechanisms for Exploring Source Code Evolution.}
+\newblock In Ducasse et~al. \cite{DBLP:conf/vissoft/2005}, pages 52--57.
+
+\bibitem{ldx}
+J.~Wu and R.~C. Holt.
+\newblock {Linker-Based Program Extraction and Its Uses in Studying Software
+  Evolution}.
+\newblock Technical report, In Proceedings of the International Workshop on
+  Unanticipated Software Evolution (FUSE 2004), March 2004.
+
+\bibitem{zimmermann-msr-2004}
+T.~Zimmermann and P.~Weibgerber.
+\newblock {Preprocessing CVS Data for Fine-grained Analysis}.
+\newblock In {\em Proceedings of the 1st International Workshop on Mining
+  Software Repositories}, pages 2--6, May 2004.
+
+\end{thebibliography}

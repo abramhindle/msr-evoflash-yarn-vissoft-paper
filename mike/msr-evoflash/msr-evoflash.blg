@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99c (Web2C 7.4.5)
+The top-level auxiliary file: msr-evoflash.aux
+The style file: latex8.bst
+Database file #1: msr-evoflash.bib
+Warning--to sort, need author or key in cppx
+Warning--to sort, need author or key in ctags
+Warning--empty author in cppx
+Warning--empty year in cppx
+Warning--empty author in ctags
+Warning--empty institution in ctags
+Warning--empty year in ctags
+Warning--empty journal in pbs
+Warning--empty year in crex
+You've used 14 entries,
+            2118 wiz_defined-function locations,
+            575 strings with 5990 characters,
+and the built_in function-call counts, 4503 in all, are:
+= -- 452
+> -- 211
+< -- 5
++ -- 86
+- -- 70
+* -- 279
+:= -- 742
+add.period$ -- 47
+call.type$ -- 14
+change.case$ -- 83
+chr.to.int$ -- 0
+cite$ -- 23
+duplicate$ -- 176
+empty$ -- 335
+format.name$ -- 70
+if$ -- 969
+int.to.chr$ -- 0
+int.to.str$ -- 14
+missing$ -- 5
+newline$ -- 75
+num.names$ -- 24
+pop$ -- 93
+preamble$ -- 1
+purify$ -- 63
+quote$ -- 0
+skip$ -- 136
+stack$ -- 0
+substring$ -- 203
+swap$ -- 49
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 56
+warning$ -- 9
+while$ -- 35
+width$ -- 16
+write$ -- 157
+(There were 9 warnings)

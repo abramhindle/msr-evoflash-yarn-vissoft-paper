@@ -1,0 +1,141 @@
+\documentclass{article}
+\title{YARN User Survey}
+\author{Abram Hindle \\
+ahindle@cs.uwaterloo.ca
+}
+\usepackage{hyperref}
+%\usepackage{fullpage}
+\begin{document}
+\newcounter{question}
+\setcounter{question}{0}
+\newcommand{\quest}{\addtocounter{question}{1}\thequestion}
+\newcommand{\qitem}{\item \quest.}
+
+\maketitle
+
+\subsection{Introduction}
+
+Thank for you attempting to take this survey. I ask that you avoid
+spending a lot of time on a question unless you really want to.  Your
+data might be given out but I promise to strip it of all identifiers
+that would indicate it was you who answered this survey.  You can
+answer somewhat informally if you want to. For the yes/no questions
+you are free to provide a more detailed answer. If you are time
+constrained just pick a few questions you want to answer.
+
+To respond just return a list of answered numbered by their question
+number. Most answers are a binary yes/no. If you don't want to answer
+a question just leave it blank.
+
+The URL \url{http://swag.uwaterloo.ca/~ahindle/yarn/} contains links
+to all the animations.
+
+\subsection{Postgresql Default}
+
+Please view
+\url{http://swag.uwaterloo.ca/~ahindle/yarn/postgresql.default.html} .  Don't
+watch the whole thing. For all these links I recommend right clicking
+and choosing medium or low quality settings in flash.
+
+\begin{itemize}
+\qitem Click around on the time-bar on the bottom. Did you see the change in the graph (yes/no)?
+\qitem Could you tell how to Pause, Play and jump around in the animation (yes/no)?
+\qitem Could you tell what the animation is about (yes/no)?
+\end{itemize}
+
+The animation is about the changes in coupling between modules in
+PostgreSQL. Each text box is a module and each arc indicates the
+number of calls between a module. Arcs point in one direction and are
+often embedded in each other. So the animation is displaying and
+highlighting the changes in coupling between modules of PostgreSQL
+over time.
+
+\begin{itemize}
+\qitem Did the colors tell you anything (short answer)?
+\qitem Were the colors misleading (yes/no)?
+\qitem Was it annoying or helpful to pause the animation when you jumped around (annoying/helpful)?
+\end{itemize}
+
+\subsection{Postgresql Default Decay}
+
+Please view
+\url{http://swag.uwaterloo.ca/~ahindle/yarn/postgresql.everything_colorful_decay.html} .  Don't
+watch the whole thing. For all these links I recommend right clicking
+and choosing medium or low quality settings in flash.
+
+\begin{itemize}
+\qitem Did the decaying colors help hi-light changes (yes/no)?
+\qitem Did this animation seem more useful than the previous (yes/no)?
+\qitem Were the colors misleading (yes/no)?
+\end{itemize}
+
+\subsection{Postgresql Highlight Decay}
+
+Please view
+\url{http://swag.uwaterloo.ca/~ahindle/yarn/postgresql.highlight_decay.html} .  Don't
+watch the whole thing. For all these links I recommend right clicking
+and choosing medium or low quality settings in flash.
+
+\begin{itemize}
+\qitem Did the decaying color help hi-light changes (yes/no)?
+\qitem Did this animation seem more useful than the previous (yes/no)?
+\qitem Did the decaying color confuse anything (short-answer/yes/no)?
+\end{itemize}
+
+\subsection{Postgresql Important}
+Please view
+\url{http://swag.uwaterloo.ca/~ahindle/yarn/postgresql.important.html}
+.  Don't watch the whole thing. For all these links I recommend right
+clicking and choosing medium or low quality settings in flash.
+
+This animation highlights important changes to PostgreSQL; these
+include changes which create new dependencies or changes which double
+the dependencies. The changes are highlighted and do not decay till
+another change comes occurs.
+
+\begin{itemize}
+%\qitem Can you tell when a change with small coupling is made (yes/no)?
+%\qitem Can you tell when a change with large coupling is made (yes/no)?
+\qitem What do you think this animation helps show (short answer)?
+\qitem Could this animation be misleading (yes/no)?
+\qitem Does this tell you anything about the frequency of change in coupling between modules (short answer)?
+\qitem What does this animation tell you about the importance metric used (short answer)?
+\end{itemize}
+
+\subsection{Postgresql Important Decay}
+Please view
+\url{http://swag.uwaterloo.ca/~ahindle/yarn/postgresql.important_decay.html}
+.  Don't watch the whole thing. For all these links I recommend right
+clicking and choosing medium or low quality settings in flash.
+
+This animation highlights important changes to PostgreSQL; these
+include changes which create new dependencies or changes which double
+the dependencies. The changes are highlighted and do not decay till
+another change comes occurs.
+
+\begin{itemize}
+\qitem Was this animation better than the ``PostgreSQL Important'' animation in the previous section (yes/no)?
+\qitem What do you think this animation helps show (short answer)?
+\qitem Could this animation be misleading (yes/no)?
+\qitem Was this animation too sparse or too boring (yes/no)?
+\end{itemize}
+
+\subsection{Global Questions}
+
+These questions are about all the animations:
+
+\begin{itemize}
+\qitem Could you tell when a change with small coupling is made (yes/no)?
+\qitem Could you tell when a change with large coupling is made (yes/no)?
+\qitem Did the edge widths help show any useful information to you (short answer/yes/no)?
+\qitem Did these animations tell you anything about software architecture or software in general (short answer)?
+\qitem What was the general feeling you had about these projects before? Did your feelings change? Did you expect to see what you saw? (short answer)
+%expect to say messiness
+\qitem Which animation schemes were the most useful (short answer)?
+\qitem Would you use these animations on your own projects if they were easy to generate (yes/no)?
+\qitem Would you use these animations on projects you were new to if they were easy to generate (yes/no)?
+\qitem Would you ever use these animations if they were available to you (yes/no)?
+\qitem Do you have any suggestions for improvement (short answer)?
+\end{itemize}
+
+\end{document}

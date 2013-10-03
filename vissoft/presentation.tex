@@ -1,0 +1,236 @@
+\documentclass[titlepage,usenames,a4,landscape,semhelv]{seminar}
+\usepackage{graphicx}
+\usepackage{comment}
+%\usepackage[breaklines]{listings}
+\usepackage{seminar}
+\usepackage[usenames]{color} 
+%\usepackage[pdftex]{color}
+\usepackage{hyperref}
+\input{seminar.bug}
+\input{seminar.bg2}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+
+\slidesmag{6}
+
+\noxcomment
+  \renewcommand{\slidetopmargin}{15.5mm}
+  \renewcommand{\slidebottommargin}{13mm}
+%  \renewcommand{\slidetopmargin}{15.5mm}
+%  \renewcommand{\slidebottommargin}{13mm}
+
+%  \renewcommand{\slideleftmargin}{0mm}
+  %\renewcommand{\slideleftmargin}{-1cm}
+\newcommand{\bitem}[1]{\item {\bf #1}: }
+  %\renewcommand{\sliderightmargin}{1cm}
+\newcommand{\catfile}[1]{ \newslide {\bf #1} 
+	{\scriptsize 
+		\tt 
+		\lstinputlisting[language=PERL,breaklines=true]{#1} 
+	} 
+}
+\newcommand{\sslide}[1]{ \newslide
+	{\huge\bf #1}
+}
+\newcommand{\ttt}[1]{
+	``{\tt #1}''
+}
+\newcommand{\gettitle}{
+YARN: Animating Software Evolution
+}
+
+\newcommand{\gettitleproper}{
+YARN: Animating Software Evolution
+}
+
+\title{\large \gettitleproper}
+\renewcommand{\thetitle}{\gettitle}
+\newcommand{\listperl}[1]{
+	{\scriptsize
+		\tt
+	\lstinputlisting[language=PERL,breaklines=true]{#1}
+	}
+}
+\newcommand{\listidl}[1]{
+	{\scriptsize
+		\tt
+	\lstinputlisting[language=IDL,breaklines=true]{#1}
+	}
+}
+\newcommand{\hrf}[1]{
+	\href{#1}{#1}
+}
+%\newenvironment{notes}[0]{\tt \begin{note}}{ \end{note}  }
+
+\newcommand{\softChange}{\textsf{softChange}\ }
+\newcommand{\igColumnReal}[1]{\includegraphics[width=.9\textwidth]{#1}}
+\newcommand{\igReal}[1]{\includegraphics[width=.9\textwidth]{#1}}
+\newcommand{\names}{Abram Hindle, Zhen Ming Jiang, Walid Koleilat, Michael W. Godfrey, Richard C. Holt}
+\author{
+\names \\ 
+{\small Software Architecture Group }\\
+\small David R. Cheriton School of Computer Science\\
+\small University of Waterloo\\
+\small Canada\\
+ahindle@cs.uwaterloo.ca, zmjiang@ece.uvic.ca, \{wkoleila,migod,holt\}@cs.uwaterloo.ca
+}
+%\markboth{ }{Abram Hindle \thesection }
+
+\newcommand{\albertaCVS}{\textsf{JReflex}\ }
+\fancyhf{} % Clear all fields
+
+\renewcommand{\headrulewidth}{1.0mm}
+\renewcommand{\footrulewidth}{1.0mm}
+
+
+%\renewcommand{\headrulewidth}{1.2mm}
+%\renewcommand{\footrulewidth}{1.2mm}
+%\fancyhead[C]{\small Abram Hindle {\bf \gettitle } CSC483A/583B}
+%\fancyhead[R]{\color{white} \small Abram Hindle}
+%\fancyhead[L]{\color{white}  \bf \gettitle}
+%\fancyfoot[L]{\color{white} \course}
+%\fancyfoot[R]{\color{white} \small \thepage}
+\fancyfoot[L]{\tiny Abram Hindle}
+\fancyhead[L]{ \tiny \bf \gettitle}
+%\fancyfoot[L]{\course}
+\fancyfoot[R]{\tiny \thepage}
+\slideframe{none}
+\renewcommand{\headwidth}{\textwidth}
+\renewcommand{\slidetopmargin}{0.5cm}
+\renewcommand{\slidebottommargin}{0.5cm}
+
+
+\newcommand{\igH}[1]{\includegraphics[height=.9\textheight]{#1}}
+\newcommand{\igHh}[1]{\includegraphics[height=.5\textheight]{#1}}
+\newcommand{\igHd}[1]{\includegraphics[height=.8\textheight]{#1}}
+\newcommand{\igHq}[1]{\includegraphics[height=.25\textheight]{#1}}
+
+\newcommand{\igW}[1]{\includegraphics[width=.9\textwidth]{#1}}
+\newcommand{\igWsixth}[1]{\includegraphics[width=.6\textwidth]{#1}}
+\newcommand{\igWseventh}[1]{\includegraphics[width=.6\textwidth]{#1}}
+
+\newcommand{\igWh}[1]{\includegraphics[width=.45\textwidth]{#1}}
+\newcommand{\igWt}[1]{\includegraphics[width=.3\textwidth]{#1}}
+
+\newcommand{\igWhalf}[1]{\includegraphics[width=.45\textwidth]{#1}}
+
+\definecolor{source}{rgb}{1.0,0.7,0.0}
+\definecolor{test}{rgb}{0.19,0.43,0.53}
+\definecolor{build}{rgb}{0.73,0.0,0.50}
+\definecolor{documentation}{rgb}{0.38,0.77,0.00}
+\definecolor{doc}{rgb}{0.38,0.77,0.00}
+
+
+\newcommand{\ess}[1]{\texttt{S#1}}
+\newcommand{\dee}[1]{\texttt{D#1}}
+\newcommand{\bee}[1]{\texttt{B#1}}
+\newcommand{\tee}[1]{\texttt{T#1}}
+\newcommand{\Apluss}{+}
+\newcommand{\Aplus}{+}
+\newcommand{\Aminus}{-}
+\newcommand{\Aquest}{?}
+\newcommand{\Aquestionbox}{?}
+\newcommand{\Aequals}{=}
+\newcommand{\Aequal}{=}
+
+\newcommand{\hess}[1]{{\color{source}\texttt{S#1}}}
+\newcommand{\hdee}[1]{{\color{doc}\texttt{D#1}}}
+\newcommand{\hbee}[1]{{\color{build}\texttt{B#1}}}
+\newcommand{\htee}[1]{{\bf\color{test}\texttt{T#1}}}
+
+
+
+
+
+\newcommand{\transition}[2]{
+
+\newslide
+\begin{figure}
+	\centering
+	\igW{transition#1}
+	\caption{#2}
+	\label{fig:transition#1}
+\end{figure}
+}
+
+
+\begin{comment}
+TODO:
+* STBD concrete -> abstract (slide 24)
+X Color 2 MySQL plots
+
+\end{comment}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\pagestyle{fancy} %bars..
+%\normalcolor{white}
+%\definecolor{Textcolor}{cmyk}{1,1,1,0}
+\begin{slide}
+%\maketitle
+
+\begin{center}
+{\bf \LARGE \gettitle }
+
+{\names } 
+
+{\small Software Architecture Group }\\[-.5em]
+{\small David R. Cheriton School of Computer Science}\\[-.5em]
+{\small University of Waterloo}\\[-.5em]
+{\small Canada}
+
+ahindle@cs.uwaterloo.ca, zmjiang@ece.uvic.ca, \{wkoleila,migod,holt\}@cs.uwaterloo.ca
+
+
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+=This Presentation
+* 
+%   * Introduction
+%   * Release Patterns
+%   * Methodology
+%   * Case Study
+%   * Results
+%   * Conclusions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+=Introduction
+* Many Revisions
+* Large Amount of Data
+* Architecture View
+%  * Infer part of the Software Development process from release time behavior
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+=Motivation
+* Large Amount of Change Data
+* What does it look like
+* Architectural View
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+=YARN
+* Yet Another Reverse-engineering Narrative
+* Show architectural modules and their changing coupling over time.
+
+=Process
+* C-REX - extract revisions and tokens (symbol table and transactions)
+* HistODiff - resolves symbols to files, lifts files to architecture level
+* YARN - visualizes HistODiff output
+
+=Process
+* Image:
+  CVS -> REVISIONS -> C-REX -> ctags -> tokens
+
+
+
+=Thank you
+* Any Questions?
+
+
+=
+%\newslide %{Bibliography}
+%\bibliographystyle{alpha}
+%\nocite{*}
+%\bibliography{open,mine,cvs}
+
+\end{slide}
+\end{document}
